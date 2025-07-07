@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🐜 Ant Smasher Game</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- Welcome Screen -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <h1>🐜 ANT SMASHER GAME 🐜</h1>
+
+        <div class="rules-container">
+            <h2>🎯 Game Rules</h2>
+            <ul class="rules-list">
+                <li>Click "Start Game" to begin the ant smashing adventure</li>
+                <li>Ants will appear randomly on the screen</li>
+                <li>Click on the ants quickly to smash them</li>
+                <li>Each ant you smash gives you 1 point</li>
+                <li>Ants disappear after a few seconds if not clicked</li>
+                <li>Try to beat the current high score!</li>
+                <li>Click "Restart" anytime to reset your game</li>
+                <li>Game lasts for 60 seconds!</li>
+            </ul>
+        </div>
+
+        <div class="high-score-display">
+            <h3>🏆 Current High Score</h3>
+            <div class="high-score-value" id="welcomeHighScore">0</div>
+            <div class="high-score-name" id="welcomeHighScoreName">No record yet</div>
+        </div>
+
+        <div class="player-input-container">
+            <h3>👤 Enter Your Name</h3>
+            <div class="input-group">
+                <label for="playerNameInput">Player Name:</label>
+                <input type="text" id="playerNameInput" placeholder="Enter your name..." maxlength="20"
+                    autocomplete="off" />
+            </div>
+            <button class="start-button" id="startGameBtn" aria-label="Start Game">
+                🎮 Start Game
+            </button>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div class="game-screen" id="gameScreen">
+        <h1>🐜 Ant Smasher Game</h1>
+
+        <div class="current-player" id="currentPlayer">
+            <h3>Current Player:</h3>
+            <div class="player-name" id="currentPlayerName">Player</div>
+        </div>
+
+        <div class="game-info">
+            <div class="info-item">
+                <div>Current Score</div>
+                <div id="currentScore" aria-live="polite">0</div>
+            </div>
+            <div class="info-item">
+                <div>High Score</div>
+                <div id="highScore">0</div>
+            </div>
+            <div class="info-item">
+                <div>Ants Smashed</div>
+                <div id="antsSmashed">0</div>
+            </div>
+            <div class="info-item">
+                <div>Time Left</div>
+                <div id="timeLeft">60s</div>
+            </div>
+            <div class="info-item">
+                <div>Misses</div>
+                <div id="missCount">0/7</div>
+            </div>
+        </div>
+
+        <div class="game-container" id="gameContainer"></div>
+
+        <div class="controls">
+            <button class="btn btn-pause" id="pauseBtn" aria-label="Pause Game">⏸️ Pause</button>
+            <button class="btn btn-restart" id="restartBtn" aria-label="Restart Game">🔄 Restart</button>
+            <button class="btn btn-back" id="backBtn" aria-label="Back to Menu">🏠 Menu</button>
+            <button class="btn btn-sound" id="soundToggleBtn" aria-label="Toggle Sound">🔊 Mute</button>
+        </div>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" class="game-over-overlay">
+        <div class="game-over-box">
+            <h2 id="gameOverMessage">Game Over</h2>
+            <p id="finalScore">Score: 0</p>
+            <div class="game-over-buttons">
+                <button class="btn" onclick="restartGame()">🔄 Restart</button>
+                <button class="btn" onclick="goBackToWelcome()">🏠 Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaderboard -->
+    <div class="leaderboard" id="leaderboard">
+        <h2>📊 Leaderboard</h2>
+        <ol id="leaderboardList"></ol>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
